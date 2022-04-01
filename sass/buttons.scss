@@ -1,0 +1,57 @@
+@use "_setup" as *;
+
+@function color-contrast($color) {
+    $color-brightness: round((red($color) * 299) + (green($color) * 587) + (blue($color) * 114) / 1000);
+    $light-color: round((red(#fff) * 299) + (green(#fff) * 587) + (blue(#fff) * 114) / 1000);
+
+    @if abs($color-brightness) < ($light-color / 2) {
+        @return white;
+    }
+
+    @else {
+        @return black;
+    }
+}
+
+@each $btn-type-name, $btn-type-class in $btn-types {
+    @each $color-name, $color-value in $btn-colors {
+        .#{$ui-prefix}#{$button-prefix}#{$btn-type-class}-#{$color-name} {
+            display: inline-block;
+            font-size: 12px;
+            border: 1px solid $color-value;
+            border-radius: 3px;
+            padding: 8px 14px;
+            cursor: pointer;
+            line-height: 1.5;
+            outline: none;
+            text-transform: capitalize;
+            text-decoration:none;
+
+            @if ($btn-type-name == "outline") {
+                background-color: $btn-outline-background-color;
+                color: darken($color-value, $btn-color-adjustment);
+
+                &:not(:disabled):hover {
+                    background-color: lighten($btn-outline-background-color, $btn-color-adjustment);
+                }
+            }
+
+            @else {
+                background-color: $color-value;
+                color: #fff;
+
+                &:not(:disabled):hover {
+                    background-color: lighten($color-value, $btn-color-adjustment);
+                }
+            }
+
+            & i {
+                position: relative;
+                display: inline-block;
+                margin-right: 8px;
+                font-size: 0.75em;
+                top: -1px;
+            }
+        }
+    }
+}

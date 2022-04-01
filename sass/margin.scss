@@ -1,0 +1,15 @@
+@use "_setup" as *;
+
+@each $size, $value in $sizes {
+    .#{$ui-prefix}margin {
+        &-#{$size} {
+            margin: $value;
+        }
+
+        @each $side in $sides {
+            &-#{$side}-#{$size} {
+                margin-#{$side}: $value
+            }
+        }
+    }
+}

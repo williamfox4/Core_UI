@@ -1,0 +1,67 @@
+@use "_setup" as *;
+@use "sass:math";
+
+@mixin width($width) {
+    .#{$ui-prefix}width-#{$width} {
+        width: #{$width}px;
+    }
+}
+
+@mixin max-width($width) {
+    .#{$ui-prefix}max-width-#{$width} {
+        max-width: #{$width}px;
+    }
+}
+
+@mixin width-p($width) {
+    .#{$ui-prefix}width-#{$width}p {
+        width: #{$width+'%'};
+    }
+}
+
+@mixin max-width-p($width) {
+    .#{$ui-prefix}max-width-#{$width}p {
+        max-width: #{$width+'%'};
+    }
+}
+
+@mixin generate-width($start, $max, $step, $mode) {
+    $from: ceil(math.div($start, $step));
+    $through: ceil(math.div($max, $step));
+
+    @for $i from $from through $through {
+        $i: $i * $step;
+
+        // Generate a width
+        @if $mode == 1 {
+            @include width($i);
+        }
+        // Generate a max-width
+        @else if $mode == 2 {
+            @include max-width($i);
+        }
+        // Generate a width-p
+        @else if $mode == 3 {
+            @include width-p($i);
+        }
+        // Generate a max-width-p
+        @else if $mode == 4 {
+            @include max-width-p($i);
+        }
+    }
+}
+
+/* width */
+@include generate-width(5, 99, 5, 1);
+@include generate-width(100, 349, 10, 1);
+@include generate-width(400, 600, 50, 1);
+
+/* max-width */
+@include generate-width(100, 800, 100, 2);
+
+/* percentages */
+@include generate-width(5, 100, 5, 3);
+
+/* max percent */
+@include generate-width(25, 100, 25, 4);
+@include generate-width(33, 66, 33, 4);
