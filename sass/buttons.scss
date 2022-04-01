@@ -13,26 +13,57 @@
     }
 }
 
+%btn {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+    outline: none;
+    overflow: hidden;
+    padding: 10px 26px;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap; 
+    border-radius: $input-radius;
+    box-shadow: rgba(29, 31, 29, 0.15) 0 4px 9px;
+    cursor: pointer;
+    display: inline-block;
+    appearance: none;
+    font-family: $body-font;
+
+    &:disabled {
+        box-shadow: none;
+        opacity: $disabled-opacity;
+        cursor: default;
+    }
+}
+
 @each $btn-type-name, $btn-type-class in $btn-types {
     @each $color-name, $color-value in $btn-colors {
         .#{$ui-prefix}#{$button-prefix}#{$btn-type-class}-#{$color-name} {
-            display: inline-block;
-            font-size: 12px;
-            border: 1px solid $color-value;
-            border-radius: 3px;
-            padding: 8px 14px;
-            cursor: pointer;
-            line-height: 1.5;
-            outline: none;
-            text-transform: capitalize;
-            text-decoration:none;
 
+            border: 1px solid darken($color-value, $btn-color-adjustment);
+
+            @extend %btn;
+            
             @if ($btn-type-name == "outline") {
                 background-color: $btn-outline-background-color;
                 color: darken($color-value, $btn-color-adjustment);
 
                 &:not(:disabled):hover {
                     background-color: lighten($btn-outline-background-color, $btn-color-adjustment);
+                }
+            }
+
+            @else if ($btn-type-name == "link") {
+                background-color: transparent;
+                border: none;
+                box-shadow: none;
+                text-decoration: underline;
+                color: darken($color-value, $btn-color-adjustment);
+
+                &:not(:disabled):hover {
+                    background-color: transparent;
+                    text-decoration: none;
                 }
             }
 
