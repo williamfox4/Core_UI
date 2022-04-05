@@ -1,0 +1,15 @@
+@use "_setup" as *;
+
+html, body {
+    font-family: $body-font;
+}
+
+%heading {
+    font-family: $heading-font;
+}
+
+@for $i from 6 through 1 {
+    h#{$i} {
+        @extend %heading;
+    }
+}
