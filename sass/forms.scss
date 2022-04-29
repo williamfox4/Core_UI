@@ -1,0 +1,24 @@
+@use "_setup" as *;
+
+fieldset {
+  border: 1px solid $input-border-color;
+  border-radius: $input-radius;
+}
+
+input,
+input[type="radio"] + label,
+input[type="checkbox"] + label:before,
+select option,
+select {
+  font-size: 16px;
+  padding: $input-padding;
+  line-height: 1.4;
+  border: 1px solid $input-border-color;
+  border-radius: $input-radius;
+  transition: 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+}
+input:focus {
+  outline: 0;
+  border-color: $input-focus-color;
+}

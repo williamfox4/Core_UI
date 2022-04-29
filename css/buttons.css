@@ -1,10 +1,10 @@
 .ui-btn-link-cancel, .ui-btn-link-warning, .ui-btn-link-negative, .ui-btn-link-positive, .ui-btn-link-default, .ui-btn-outline-cancel, .ui-btn-outline-warning, .ui-btn-outline-negative, .ui-btn-outline-positive, .ui-btn-outline-default, .ui-btn-cancel, .ui-btn-warning, .ui-btn-negative, .ui-btn-positive, .ui-btn-default {
   font-size: 16px;
   font-weight: 600;
-  line-height: 1.5;
+  line-height: 1.4;
   outline: none;
   overflow: hidden;
-  padding: 10px 26px;
+  padding: 6px 26px;
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
@@ -25,11 +25,12 @@
 
 .ui-btn-default {
   border: 1px solid #1d74b6;
-  background-color: #2185D0;
+  background: #2185D0;
+  background: linear-gradient(200deg, #2185D0 0%, #2d92de 63%);
   color: #fff;
 }
 .ui-btn-default:not(:disabled):hover {
-  background-color: #3194de;
+  background: #3194de;
 }
 .ui-btn-default i {
   position: relative;
@@ -41,11 +42,12 @@
 
 .ui-btn-positive {
   border: 1px solid #1ca03b;
-  background-color: #21BA45;
+  background: #21BA45;
+  background: linear-gradient(200deg, #21BA45 0%, #25d04d 63%);
   color: #fff;
 }
 .ui-btn-positive:not(:disabled):hover {
-  background-color: #26d44f;
+  background: #26d44f;
 }
 .ui-btn-positive i {
   position: relative;
@@ -57,11 +59,12 @@
 
 .ui-btn-negative {
   border: 1px solid #c42121;
-  background-color: #DB2828;
+  background: #DB2828;
+  background: linear-gradient(200deg, #DB2828 0%, #df3e3e 63%);
   color: #fff;
 }
 .ui-btn-negative:not(:disabled):hover {
-  background-color: #df4242;
+  background: #df4242;
 }
 .ui-btn-negative i {
   position: relative;
@@ -73,11 +76,12 @@
 
 .ui-btn-warning {
   border: 1px solid #e2620d;
-  background-color: #F2711C;
+  background: #F2711C;
+  background: linear-gradient(200deg, #F2711C 0%, #f38034 63%);
   color: #fff;
 }
 .ui-btn-warning:not(:disabled):hover {
-  background-color: #f48339;
+  background: #f48339;
 }
 .ui-btn-warning i {
   position: relative;
@@ -89,11 +93,12 @@
 
 .ui-btn-cancel {
   border: 1px solid #676767;
-  background-color: #767676;
+  background: #767676;
+  background: linear-gradient(200deg, #767676 0%, #838383 63%);
   color: #fff;
 }
 .ui-btn-cancel:not(:disabled):hover {
-  background-color: #858585;
+  background: #858585;
 }
 .ui-btn-cancel i {
   position: relative;
